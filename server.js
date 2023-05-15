@@ -21,7 +21,10 @@ module.exports.startServer = async () => {
     try {
 
         //establish connection with DataBase 
-        await mongoose.connect(process.env.mongoDB_URL);
+        await mongoose.connect(process.env.mongoDB_URL , {
+              useNewUrlParser: "true",
+              useUnifiedTopology: "true"
+        });
         console.log('MongoDB connected successfully :: DB');
 
         // firing server after connection of DB
